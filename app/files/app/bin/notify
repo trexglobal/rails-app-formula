@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# validate correct number of arguments are passed
+# validate email address
+
+echo "$1 DONE with $2" | mailx -s "Done on $(hostname)" $3
