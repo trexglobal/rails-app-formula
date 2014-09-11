@@ -1,11 +1,8 @@
-{% set supply_node_ip = salt['mine.get']('supply*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
-common: &common
-  adapter: mysql
-  database: trex_production
-  username: app
-  password: {{ pillar['mysql']['pass']['app'] }}
-  host: {{ supply_node_ip }}
-  port: 3306
+{% set reinforcement_node_ip = salt['mine.get']('reinforcement*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
+
+SERVER_TYPE: {{ salt['grains.get']('circle') }}
+SERVER_HOSTNAME:  {{ pillar['mysql']['server_hostname'] }}
+SERVER_PORT: 443
 
 FILE_STORAGE: s3
 
@@ -18,23 +15,23 @@ CLEAN_DB_USER: test@test.us
 
 AMAZON_ACCESS_KEY_ID: {{ pillar['app']['amazon_access_key_id'] }}
 AMAZON_SECRET_ACCESS_KEY: {{ pillar['app']['amazon_secret_access_key'] }}
-AMAZON_INDEXER_BUCKET: fl.{{ salt['grains.get']('circle') }}.{{ pillar['app']['domain'] }}
+AMAZON_INDEXER_BUCKET: {{ pillar['app']['name']}}-{{ salt['grains.get']('circle') }}-{{ pillar['app']['company']}}-indexer
 
-SOLR_HOST: {{ supply_node_ip }}
+SOLR_HOST: {{ reinforcement_node_ip }}
 SOLR_PORT: 8080
 
-MONGO_HOST: {{ supply_node_ip }}
+MONGO_HOST: {{ reinforcement_node_ip }}
 MONGO_DATABASE: trex_index
 
 # Check Printing
-DNODE_HOST:  {{ pillar['app']['dnode_host'] }}
+DNODE_HOST: {{ salt['grains.get']('circle') }}.{{ pillar['app']['domain'] }}
 DNODE_PORT: false
 DNODE_TOKEN: {{ pillar['app']['dnode_token'] }}
 
-QUEUE_HOST: {{ supply_node_ip }}
+QUEUE_HOST: {{ reinforcement_node_ip }}
 QUEUE_PORT: 22122
 
-MAIL_HOST: {{ supply_node_ip }}
+MAIL_HOST: {{ reinforcement_node_ip }}
 MAIL_DOMAIN: simplifyem.com
 
 AUTHORIZENET_LOGIN: {{ pillar['app']['authorizenet_login'] }}

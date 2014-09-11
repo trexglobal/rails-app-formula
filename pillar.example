@@ -2,15 +2,26 @@ app:
   amazon_access_key_id:  # REPLACE THIS TEXT WITH VALID ACCESS KEY ID #
   amazon_secret_access_key:  # REPLACE THIS TEXT WITH VALID SECRET ACCESS KEY #
    #  Required in application.yml
+  name:  # REPLACE THIS TEXT WITH VALID SERVER HOSTNAME #
+  company:  # REPLACE THIS TEXT WITH VALID SERVER HOSTNAME #
   server_hostname:  # REPLACE THIS TEXT WITH VALID SERVER HOSTNAME #
-  dnode_host:  # REPLACE THIS TEXT WITH VALID DNODE HOST #
   dnode_token:  # REPLACE THIS TEXT WITH VALID DNODE TOKEN #
   authorizenet_login:  # REPLACE THIS TEXT WITH VALID AUTHORIZENET LOGIN #
   authorizenet_pass:  # REPLACE THIS TEXT WITH VALID AUTHORIZENET PASSWORD #
-  domain:  # REPLACE THIS TEXT WITH VALID DOMAIN ADDRESS #
+  domain: example.com
 
 mysql:
   server_hostname:  # REPLACE THIS TEXT WITH VALID MYSQL SERVER HOSTNAME #
   pass:
     root:  # REPLACE THIS TEXT WITH VALID ROOT PASSWORD #
     app:  # REPLACE THIS TEXT WITH VALID APP PASSWORD #
+
+mail_alert:
+  account:
+    email: alert@trexglobal.com
+    password: # please enter password #
+  users:
+    - mario@vejlupek.cz
+    - Narinder.Sandhu@trexglobal.com
+    - Pankaj.Shukla@trexglobal.com
+    - jay.gopi@trexglobal.com
