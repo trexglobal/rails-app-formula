@@ -15,7 +15,7 @@ CLEAN_DB_USER: test@test.us
 
 AMAZON_ACCESS_KEY_ID: {{ pillar['app']['amazon_access_key_id'] }}
 AMAZON_SECRET_ACCESS_KEY: {{ pillar['app']['amazon_secret_access_key'] }}
-AMAZON_INDEXER_BUCKET: sfym-{{ salt['grains.get']('circle') }}-trexglobal
+AMAZON_INDEXER_BUCKET: fl.{{ salt['grains.get']('circle') }}.{{ pillar['app']['domain'] }}
 
 SOLR_HOST: {{ reinforcement_node_ip }}
 SOLR_PORT: 8080
