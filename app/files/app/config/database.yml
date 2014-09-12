@@ -6,7 +6,7 @@
 
 common: &common
   adapter: mysql
-  database: {{ pillar['app']['name']}}_production
+  database: {{ pillar['app']['name'] }}_production
   username: app
   password: {{ pillar['mysql']['pass']['root'] }}
   host: {{ supply_node_ip }}
