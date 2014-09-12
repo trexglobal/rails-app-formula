@@ -2,8 +2,8 @@ app:
   amazon_access_key_id:  # REPLACE THIS TEXT WITH VALID ACCESS KEY ID #
   amazon_secret_access_key:  # REPLACE THIS TEXT WITH VALID SECRET ACCESS KEY #
    #  Required in application.yml
-  name:  # REPLACE THIS TEXT WITH VALID SERVER HOSTNAME #
-  company:  # REPLACE THIS TEXT WITH VALID SERVER HOSTNAME #
+  name:  # REPLACE THIS TEXT WITH VALID NAME #
+  company:  # REPLACE THIS TEXT WITH VALID COMPANY #
   server_hostname:  # REPLACE THIS TEXT WITH VALID SERVER HOSTNAME #
   dnode_token:  # REPLACE THIS TEXT WITH VALID DNODE TOKEN #
   authorizenet_login:  # REPLACE THIS TEXT WITH VALID AUTHORIZENET LOGIN #
@@ -18,10 +18,10 @@ mysql:
 
 mail_alert:
   account:
-    email: alert@trexglobal.com
+    email: email_address@domain.com
     password: # please enter password #
   users:
-    - mario@vejlupek.cz
-    - Narinder.Sandhu@trexglobal.com
-    - Pankaj.Shukla@trexglobal.com
-    - jay.gopi@trexglobal.com
+    - user1@domain.com
+    - user2@domain.com
+    - user3@domain.com
+    - user4@domain.com

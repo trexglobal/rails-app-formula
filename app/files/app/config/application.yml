@@ -10,7 +10,7 @@ DEV_VARS_LOADED: false
 RESET_PASSWORD: 123456
 
 CLEAN_DB_FILE: db/Clean.sql
-CLEAN_DB_NAME: trex_clean
+CLEAN_DB_NAME: {{ pillar['app']['company'] }}_clean
 CLEAN_DB_USER: test@test.us
 
 AMAZON_ACCESS_KEY_ID: {{ pillar['app']['amazon_access_key_id'] }}
@@ -21,7 +21,7 @@ SOLR_HOST: {{ reinforcement_node_ip }}
 SOLR_PORT: 8080
 
 MONGO_HOST: {{ reinforcement_node_ip }}
-MONGO_DATABASE: trex_index
+MONGO_DATABASE: {{ pillar['app']['company'] }}_index
 
 # Check Printing
 DNODE_HOST: {{ salt['grains.get']('circle') }}.{{ pillar['app']['domain'] }}

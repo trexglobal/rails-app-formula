@@ -14,7 +14,7 @@ app_pkgs:
 /srv/.s3cfg:
   file:
     - managed
-    - source: salt://sfym/files/aws/s3cfg
+    - source: salt://app/files/aws/s3cfg
     - user: app
     - group: app
     - mode: 0750
@@ -28,7 +28,7 @@ app_pkgs:
 /usr/bin/wkhtmltopdf:
   file:
     - managed
-    - source: salt://sfym/files/bin/wkhtmltopdf-linux-amd64
+    - source: salt://app/files/bin/wkhtmltopdf-linux-amd64
     - user: root
     - group: root
     - mode: 0755
