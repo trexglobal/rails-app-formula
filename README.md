@@ -8,7 +8,6 @@ Rails app formula to prepare deployment environment
 Available states
 ================
 
-.. contents:::local:
 
 ``app``
 -------
