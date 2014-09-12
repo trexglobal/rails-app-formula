@@ -23,7 +23,7 @@ rm -rf sfym_database
 
 echo "Downloading backup data for ${selected_date}"
 timestamp="${selected_date}*"
-database_name="trex_production_$(echo ${selected_date} | sed 's/\.//g')"
+database_name="{{ pillar['app']['name']}}_production_$(echo ${selected_date} | sed 's/\.//g')"
 
 s3cmd get --skip-existing "s3://sfym-live-trexglobal/DatabaseBackups/sfym_database/${timestamp}/sfym_database.tar"
 

@@ -1,4 +1,4 @@
-# Simple script to export trex_index database on reinforcement
+# Simple script to backup user index by exporting mongo database on reinforcement 
 # This script doesn't work!
 /usr/local/bin/backup_user_index:
   file:
