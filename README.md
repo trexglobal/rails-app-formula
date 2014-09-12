@@ -5,16 +5,10 @@ Rails app formula to prepare deployment environment
 
 
 
-app.
-app.
-app.
-
-
 Available states
 ================
 
-.. contents::
-    :local:
+.. contents:::local:
 
 ``app``
 -------
