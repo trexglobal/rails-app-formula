@@ -32,7 +32,7 @@ QUEUE_HOST: {{ reinforcement_node_ip }}
 QUEUE_PORT: 22122
 
 MAIL_HOST: {{ reinforcement_node_ip }}
-MAIL_DOMAIN: simplifyem.com
+MAIL_DOMAIN: {{ pillar['mail_alert']['domain'] }}
 
 AUTHORIZENET_LOGIN: {{ pillar['app']['authorizenet_login'] }}
 AUTHORIZENET_PASS: {{ pillar['app']['authorizenet_pass'] }}
