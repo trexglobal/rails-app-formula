@@ -1,0 +1,27 @@
+development:
+    bucket_name: {{ pillar['app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['app']['company'] }}-static
+    access_key_id: {{ pillar['app']['amazon_access_key_id'] }}
+    secret_access_key: {{ pillar['app']['amazon_secret_access_key'] }}
+    use_ssl: true
+    port: 443
+
+staging:
+    bucket_name: {{ pillar['app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['app']['company'] }}-static 
+    access_key_id: {{ pillar['app']['amazon_access_key_id'] }}
+    secret_access_key: {{ pillar['app']['amazon_secret_access_key'] }}
+    use_ssl: true
+    port: 443
+
+production:
+    bucket_name: {{ pillar['app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['app']['company'] }}-static
+    access_key_id: {{ pillar['app']['amazon_access_key_id'] }}
+    secret_access_key: {{ pillar['app']['amazon_secret_access_key'] }}
+    use_ssl: true
+    port: 443
+
+live:
+    bucket_name: {{ pillar['app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['app']['company'] }}-static
+    access_key_id: {{ pillar['app']['amazon_access_key_id'] }}
+    secret_access_key: {{ pillar['app']['amazon_secret_access_key'] }}
+    use_ssl: true
+    port: 443

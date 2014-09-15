@@ -1,0 +1,7 @@
+#!/bin/bash
+
+timestamp=$(date +\%Y_\%m_\%d)
+
+{% set supply_node_ip = salt['mine.get']('supply*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
+
+mongoexport -h {{ supply_node_ip }}   -u admin --db {{ pillar['app']['name'] }}_index --collection userdata  --query "{\"_id\": \"$1\"}" --out /srv/shared/backup/mongo/$1-${timestamp}.json
