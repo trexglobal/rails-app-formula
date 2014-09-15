@@ -21,7 +21,7 @@ app:
       - modes
     - require:
       - user: app
-      - file: /srv/shared
+#      - file: /srv/shared
 
 
 /srv/shared/log/index:
