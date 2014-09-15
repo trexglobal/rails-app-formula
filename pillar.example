@@ -1,4 +1,4 @@
-app:
+rails-app:
   amazon_access_key_id:  # REPLACE THIS TEXT WITH VALID ACCESS KEY ID #
   amazon_secret_access_key:  # REPLACE THIS TEXT WITH VALID SECRET ACCESS KEY #
   name:  # REPLACE THIS TEXT WITH VALID NAME #

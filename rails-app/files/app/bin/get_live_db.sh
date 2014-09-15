@@ -19,28 +19,28 @@ fi
 cd /data/tmp
 
 echo "Removing previously downladed backup"
-rm -rf {{ pillar['app']['name'] }}_database
+rm -rf {{ pillar['rails-app']['name'] }}_database
 
 echo "Downloading backup data for ${selected_date}"
 timestamp="${selected_date}*"
-database_name="{{ pillar['app']['name'] }}_production_$(echo ${selected_date} | sed 's/\.//g')"
+database_name="{{ pillar['rails-app']['name'] }}_production_$(echo ${selected_date} | sed 's/\.//g')"
 
-s3cmd get --skip-existing "s3://{{ pillar['app']['name'] }}-live-{{ pillar['app']['company'] }}/DatabaseBackups/{{ pillar['app']['name'] }}_database/${timestamp}/{{ pillar['app']['name'] }}_database.tar"
+s3cmd get --skip-existing "s3://{{ pillar['rails-app']['name'] }}-live-{{ pillar['rails-app']['company'] }}/DatabaseBackups/{{ pillar['rails-app']['name'] }}_database/${timestamp}/{{ pillar['rails-app']['name'] }}_database.tar"
 
 selected_backup=$(ls -dt ${timestamp} | head -1)
 
 echo "There were two backups, selecting ${selected_backup}"
 
 echo "Unpacking backup data"
-tar -xvf "${selected_backup}/{{ pillar['app']['name'] }}_database.tar"
+tar -xvf "${selected_backup}/{{ pillar['rails-app']['name'] }}_database.tar"
 
 echo "Creating database"
 mysqladmin -f drop $database_name
 mysqladmin create $database_name
 
 echo "Loading data into database"
-zcat {{ pillar['app']['name'] }}_database/databases/MySQL.sql.gz | mysql $database_name
+zcat {{ pillar['rails-app']['name'] }}_database/databases/MySQL.sql.gz | mysql $database_name
 
-rm -rf {{ pillar['app']['name'] }}_database
+rm -rf {{ pillar['rails-app']['name'] }}_database
 
 echo "Done"
