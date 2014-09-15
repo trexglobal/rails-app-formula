@@ -4,7 +4,7 @@
 /usr/local/bin/get_live_db.sh:
   file:
     - managed
-    - source: salt://app/files/app/bin/get_live_db.sh
+    - source: salt://rails-app/files/app/bin/get_live_db.sh
     - user: root
     - group: root
     - mode: 0755

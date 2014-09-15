@@ -3,7 +3,7 @@
 /usr/local/bin/backup_user_index:
   file:
     - managed
-    - source: salt://app/files/app/bin/backup_user_index
+    - source: salt://rails-app/files/app/bin/backup_user_index
     - template: jinja
     - user: root
     - group: root
@@ -14,7 +14,7 @@
 /usr/local/bin/amazon_user_index:
   file:
     - managed
-    - source: salt://app/files/app/bin/amazon_user_index
+    - source: salt://rails-app/files/app/bin/amazon_user_index
     - user: root
     - group: root
     - mode: 0755
@@ -24,7 +24,7 @@
 /usr/local/bin/local_user_index:
   file:
     - managed
-    - source: salt://app/files/app/bin/local_user_index
+    - source: salt://rails-app/files/app/bin/local_user_index
     - user: root
     - group: root
     - mode: 0755

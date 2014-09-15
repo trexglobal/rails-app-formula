@@ -5,7 +5,7 @@
     - user: root
     - group: root
     - mode: 755
-    - source: salt://app/files/profile/app.sh
+    - source: salt://rails-app/files/profile/app.sh
     - template: jinja
 
 
@@ -13,7 +13,7 @@
 /usr/local/bin/apprun:
   file:
     - managed
-    - source: salt://app/files/app/bin/apprun
+    - source: salt://rails-app/files/app/bin/apprun
     - template: jinja
     - user: root
     - group: root
@@ -27,14 +27,14 @@
     - user: root
     - group: root
     - mode: 440
-    - source: salt://app/files/app/etc/logrotate.d/app
+    - source: salt://rails-app/files/app/etc/logrotate.d/app
 
 
 # Setup script for email notifications
 /usr/local/bin/notify:
   file:
     - managed
-    - source: salt://app/files/app/bin/notify
+    - source: salt://rails-app/files/app/bin/notify
     - template: jinja
     - user: root
     - group: root

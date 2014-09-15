@@ -53,7 +53,7 @@ app:
 /srv/shared/config/unicorn.rb:
   file:
     - managed
-    - source: salt://app/files/app/config/unicorn.rb
+    - source: salt://rails-app/files/app/config/unicorn.rb
     - user: app
     - group: app
     - mode: 0755
@@ -64,7 +64,7 @@ app:
 /srv/shared/config/database.yml:
   file:
     - managed
-    - source: salt://app/files/app/config/database.yml
+    - source: salt://rails-app/files/app/config/database.yml
     - user: app
     - group: app
     - mode: 0755
@@ -76,7 +76,7 @@ app:
 /srv/shared/config/application.yml:
   file:
     - managed
-    - source: salt://app/files/app/config/application.yml
+    - source: salt://rails-app/files/app/config/application.yml
     - user: app
     - group: app
     - mode: 0755
@@ -88,7 +88,7 @@ app:
 /srv/shared/config/amazon_s3.yml:
   file:
     - managed
-    - source: salt://app/files/app/config/amazon_s3.yml
+    - source: salt://rails-app/files/app/config/amazon_s3.yml
     - user: app
     - group: app
     - mode: 0755
