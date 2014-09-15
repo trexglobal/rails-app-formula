@@ -1,7 +1,8 @@
 {% set reinforcement_node_ip = salt['mine.get']('reinforcement*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
 
 SERVER_TYPE: {{ salt['grains.get']('circle') }}
-SERVER_HOSTNAME:  {{ pillar['mysql']['server_hostname'] }}
+SERVER_HOSTNAME: {{ salt'grains.get' }}.{{ pillar['app']['domain'] }}
+
 SERVER_PORT: 443
 
 FILE_STORAGE: s3
