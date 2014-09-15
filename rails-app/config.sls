@@ -19,8 +19,8 @@ app:
       - user
       - group
       - modes
-    - require:
-      - user: app
+#    - require:
+#      - user: app
 
 /srv/shared/config:
   file.directory:
@@ -32,9 +32,9 @@ app:
       - user
       - group
       - modes
-    - require:
-      - user: app
-      - file: /srv/shared
+#    - require:
+#      - user: app
+#      - file: /srv/shared
 
 /srv/shared/log/index:
   file.directory:
