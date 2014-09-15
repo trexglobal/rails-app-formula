@@ -1,19 +1,16 @@
 app:
   amazon_access_key_id:  # REPLACE THIS TEXT WITH VALID ACCESS KEY ID #
   amazon_secret_access_key:  # REPLACE THIS TEXT WITH VALID SECRET ACCESS KEY #
-   #  Required in application.yml
   name:  # REPLACE THIS TEXT WITH VALID NAME #
   company:  # REPLACE THIS TEXT WITH VALID COMPANY #
-  server_hostname:  # REPLACE THIS TEXT WITH VALID SERVER HOSTNAME #
   dnode_token:  # REPLACE THIS TEXT WITH VALID DNODE TOKEN #
   authorizenet_login:  # REPLACE THIS TEXT WITH VALID AUTHORIZENET LOGIN #
   authorizenet_pass:  # REPLACE THIS TEXT WITH VALID AUTHORIZENET PASSWORD #
   domain: example.com
 
 mysql:
-  server_hostname:  # REPLACE THIS TEXT WITH VALID MYSQL SERVER HOSTNAME #
-  pass:
-    root:  # REPLACE THIS TEXT WITH VALID ROOT PASSWORD #
+  server:
+    root_password: # REPLACE THIS TEXT WITH VALID ROOT PASSWORD #
 
 mail_alert:
   domain: # REPLACE THIS TEXT WITH VALID DOMAIN FOR MAIL SERVER #
