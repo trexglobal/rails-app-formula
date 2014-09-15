@@ -9,6 +9,19 @@ app:
 
 
 # Setup directory for config files
+/srv/shared:
+  file.directory:
+    - user: app
+    - group: app
+    - mode: 0755
+    - makedirs: True
+    - recurse:
+      - user
+      - group
+      - modes
+    - require:
+      - user: app
+
 /srv/shared/config:
   file.directory:
     - user: app
@@ -21,8 +34,7 @@ app:
       - modes
     - require:
       - user: app
-#      - file: /srv/shared
-
+      - file: /srv/shared
 
 /srv/shared/log/index:
   file.directory:
