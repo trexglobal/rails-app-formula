@@ -15,10 +15,10 @@ app:
     - group: app
     - mode: 0755
     - makedirs: True
-    - recurse:
-      - user
-      - group
-      - modes
+#    - recurse:
+#      - user
+#      - group
+#      - modes
 #    - require:
 #      - user: app
 
