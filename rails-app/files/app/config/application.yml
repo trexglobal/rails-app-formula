@@ -1,4 +1,4 @@
-{% set reinforcement_node_ip = salt['mine.get']('reinforcement*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
+{% set reinforcement_node_ip = salt['mine.get']('localhost*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
 
 SERVER_TYPE: {{ salt['grains.get']('circle') }}
 SERVER_HOSTNAME: {{ salt'grains.get' }}.{{ pillar['rails-app']['domain'] }}
