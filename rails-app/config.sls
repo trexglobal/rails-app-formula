@@ -15,12 +15,12 @@ app:
     - group: app
     - mode: 0755
     - makedirs: True
-#    - recurse:
-#      - user
-#      - group
-#      - modes
-#    - require:
-#      - user: app
+    - recurse:
+      - user
+      - group
+      - mode
+    - require:
+      - user: app
 
 /srv/shared/config:
   file.directory:
@@ -31,10 +31,10 @@ app:
     - recurse:
       - user
       - group
-      - modes
-#    - require:
-#      - user: app
-#      - file: /srv/shared
+      - mode
+    - require:
+      - user: app
+      - file: /srv/shared
 
 /srv/shared/log/index:
   file.directory:
