@@ -28,7 +28,7 @@ app_pkgs:
 /usr/bin/wkhtmltopdf:
   file:
     - managed
-    - source: salt://rails-app/files/bin/wkhtmltopdf-linux-amd64
+    - source: salt://rails-app/files/app/bin/wkhtmltopdf-linux-amd64
     - user: root
     - group: root
     - mode: 0755
