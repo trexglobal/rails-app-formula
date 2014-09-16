@@ -56,7 +56,7 @@ app:
     - recurse:
       - user
       - group
-      - modes
+      - mode
     - require:
         - user: app
 
