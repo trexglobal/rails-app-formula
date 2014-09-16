@@ -1,7 +1,7 @@
 # Install pre-requisite packages
 
 require:
-  .config
+  rails-app.config
 
 app_pkgs:
   pkg.installed:
