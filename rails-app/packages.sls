@@ -1,7 +1,7 @@
 # Install pre-requisite packages
 
 require:
-  app.config
+  .config
 
 app_pkgs:
   pkg.installed:
