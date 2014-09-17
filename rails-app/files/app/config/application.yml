@@ -1,4 +1,4 @@
-# {% set reinforcement_node_ip = salt['mine.get']('localhost*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
+{% set reinforcement_node_ip = salt['mine.get']('reinforcement*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
 
 SERVER_TYPE: {{ salt['grains.get']('circle') }}
 SERVER_HOSTNAME: {{ salt'grains.get' }}.{{ pillar['rails-app']['domain'] }}
@@ -18,10 +18,10 @@ AMAZON_ACCESS_KEY_ID: {{ pillar['rails-app']['amazon_access_key_id'] }}
 AMAZON_SECRET_ACCESS_KEY: {{ pillar['rails-app']['amazon_secret_access_key'] }}
 AMAZON_INDEXER_BUCKET: {{ pillar['rails-app']['name']}}-{{ salt['grains.get']('circle') }}-{{ pillar['rails-app']['company']}}-indexer
 
-SOLR_HOST: localhost
+SOLR_HOST: {{ reinforcement_node_ip }}
 SOLR_PORT: 8080
 
-MONGO_HOST: localhost
+MONGO_HOST: {{ reinforcement_node_ip }}
 MONGO_DATABASE: {{ pillar['rails-app']['company'] }}_index
 
 # Check Printing
@@ -29,10 +29,10 @@ DNODE_HOST: {{ salt['grains.get']('circle') }}.{{ pillar['rails-app']['domain'] 
 DNODE_PORT: false
 DNODE_TOKEN: {{ pillar['rails-app']['dnode_token'] }}
 
-QUEUE_HOST: localhost
+QUEUE_HOST: {{ reinforcement_node_ip }}
 QUEUE_PORT: 22122
 
-MAIL_HOST: localhost
+MAIL_HOST: {{ reinforcement_node_ip }}
 MAIL_DOMAIN: {{ pillar['mail_alert']['domain'] }}
 
 AUTHORIZENET_LOGIN: {{ pillar['rails-app']['authorizenet_login'] }}
