@@ -1,9 +1,15 @@
+{% set supply_node_ip = 'localhost' %}
+
+# We only need the production database since it's the production server
+# and we will get early failures if we forget to set the RAILS_ENV to
+# production.
+
 common: &common
   adapter: mysql
   database: {{ pillar['rails-app']['name'] }}_production
   username: app
   password: {{ pillar['mysql']['server']['root_password'] }}
-  host: localhost 
+  host: {{ supply_node_ip }}
   port: 3306
 
 production:
