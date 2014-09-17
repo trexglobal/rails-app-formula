@@ -3,7 +3,7 @@ common: &common
   database: {{ pillar['rails-app']['name'] }}_production
   username: app
   password: {{ pillar['mysql']['server']['root_password'] }}
-  host: localhost # {{ supply_node_ip }}
+  host: localhost 
   port: 3306
 
 production:
