@@ -1,4 +1,4 @@
-{% set supply_node_ip = salt['mine.get']('supply*.' + salt['grains.get']('circle') + '.*', 'network.ip_addrs').items()[0][1][0] %}
+{% set supply_node_ip = '0.0.0.0' %}
 
 # We only need the production database since it's the production server
 # and we will get early failures if we forget to set the RAILS_ENV to
