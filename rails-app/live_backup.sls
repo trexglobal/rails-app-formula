@@ -9,4 +9,4 @@
     - group: root
     - mode: 0755
     - require:
-      - pkg: s3cm
+      - pkg: s3cmd
