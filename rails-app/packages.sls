@@ -14,7 +14,7 @@ app_pkgs:
 /srv/.s3cfg:
   file:
     - managed
-    - source: salt://rails-app/files/aws/s3cfg
+    - source: salt://rails-app/files/app/config/s3cfg
     - user: app
     - group: app
     - mode: 0750
