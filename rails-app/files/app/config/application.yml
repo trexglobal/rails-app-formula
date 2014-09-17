@@ -1,4 +1,4 @@
-{% set reinforcement_node_ip = 0.0.0.0 %}
+{% set reinforcement_node_ip = '0.0.0.0' %}
 
 SERVER_TYPE: {{ salt['grains.get']('circle') }}
 SERVER_HOSTNAME: {{ pillar['rails-app']['domain'] }}
