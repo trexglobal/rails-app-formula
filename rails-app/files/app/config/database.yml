@@ -7,7 +7,7 @@
 common: &common
   adapter: mysql
   database: {{ pillar['rails-app']['name'] }}_production
-  username: app
+  username: root
   password: {{ pillar['mysql']['server']['root_password'] }}
   host: {{ supply_node_ip }}
   port: 3306
