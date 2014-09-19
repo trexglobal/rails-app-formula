@@ -1,24 +1,7 @@
-# Update list of available rubies before updating
-'cd /usr/local/rbenv/plugins/ruby-build && git pull':
-cmd.run
-
-rbenv-deps:
-pkg.installed:
-- pkgs:
-- bash
-- git
-- openssl
-- curl
-- make
-- gcc
-- libssl-dev
-- nodejs
-- libreadline-dev
-
 # Hack until we will get rbenv.do in upcomming saltstack version
 'RBENV_ROOT=/usr/local/rbenv RBENV_VERSION=2.1.2 rbenv exec gem install unicorn --version 4.8.2':
-cmd.run:
-- unless: 'RBENV_ROOT=/usr/local/rbenv RBENV_VERSION=2.1.2 rbenv exec gem list | grep unicorn | grep 4.8.2'
+  cmd.run:
+    - unless: 'RBENV_ROOT=/usr/local/rbenv RBENV_VERSION=2.1.2 rbenv exec gem list | grep unicorn | grep 4.8.2'
 
 
 # Setup unicorn
