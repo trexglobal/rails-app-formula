@@ -1,0 +1,9 @@
+set logfile /var/log/monit.log
+
+check host unicorn with address 127.0.0.1
+  start program = "/sbin/start unicorn"
+  stop program  = "/sbin/stop unicorn"
+  if failed port 3000 protocol HTTP
+    request /
+    with timeout 10 seconds
+    then restart
