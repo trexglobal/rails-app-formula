@@ -1,3 +1,23 @@
+# Update list of available rubies before updating
+'cd /usr/local/rbenv/plugins/ruby-build && git pull':
+cmd.run
+
+
+app-deps:
+pkg.installed:
+- names:
+- libxml2-dev # required by nokogiri
+- libxslt1-dev # required by nokogiri
+- g++ # required by eventmachine
+- libmysqlclient-dev # required by mysql
+- libexpat1-dev # required by xmlparser
+
+# Hack until we will get rbenv.do in upcomming saltstack version
+'RBENV_ROOT=/usr/local/rbenv RBENV_VERSION=2.1.2 rbenv exec gem install unicorn --version 4.8.2':
+cmd.run:
+- unless: 'RBENV_ROOT=/usr/local/rbenv RBENV_VERSION=2.1.2 rbenv exec gem list | grep unicorn | grep 4.8.2'
+
+
 # Setup unicorn
 /etc/init/unicorn.conf:
   file:
@@ -40,18 +60,3 @@ unicorn_monit_restart:
       - file: /etc/monit/conf.d/unicorn
     - watch:
       - file: /etc/monit/conf.d/unicorn
-
-
-app-deps:
-pkg.installed:
-- names:
-- libxml2-dev # required by nokogiri
-- libxslt1-dev # required by nokogiri
-- g++ # required by eventmachine
-- libmysqlclient-dev # required by mysql
-- libexpat1-dev # required by xmlparser
-
-# Hack until we will get rbenv.do in upcomming saltstack version
-'RBENV_ROOT=/usr/local/rbenv RBENV_VERSION=2.1.2 rbenv exec gem install unicorn --version 4.8.2':
-cmd.run:
-- unless: 'RBENV_ROOT=/usr/local/rbenv RBENV_VERSION=2.1.2 rbenv exec gem list | grep unicorn | grep 4.8.2'
