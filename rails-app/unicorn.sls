@@ -20,3 +20,9 @@
     - user: root
     - group: root
     - mode: 0440
+
+unicorn:
+  service:
+    - running
+    - enable: True
+    - restart: True
