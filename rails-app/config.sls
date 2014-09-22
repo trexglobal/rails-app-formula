@@ -104,6 +104,7 @@ app:
     - user: app
     - group: app
     - mode: 0755
+    - template: jinja
     - require:
        - file: /srv/shared/config
        - user: app
