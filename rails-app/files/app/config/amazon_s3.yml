@@ -1,7 +1,3 @@
-{% set test = '0.0.0.0' %}
-
-SERVER_TYPE: {{ salt['grains.get']('circle') }}
-SERVER_HOSTNAME: {{ salt['grains.get']('circle') }}.{{ pillar['rails-app']['domain'] }}
 development:
     bucket_name: {{ pillar['rails-app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['rails-app']['company'] }}-static
     access_key_id: {{ pillar['rails-app']['amazon_access_key_id'] }}
