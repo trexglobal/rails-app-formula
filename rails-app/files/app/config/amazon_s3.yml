@@ -1,3 +1,7 @@
+
+
+SERVER_TYPE: {{ salt['grains.get']('circle') }}
+SERVER_HOSTNAME: {{ salt['grains.get']('circle') }}.{{ pillar['rails-app']['domain'] }}
 development:
     bucket_name: {{ pillar['rails-app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['rails-app']['company'] }}-static
     access_key_id: {{ pillar['rails-app']['amazon_access_key_id'] }}
@@ -6,7 +10,7 @@ development:
     port: 443
 
 staging:
-    bucket_name: {{ pillar['rails-app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['rails-app']['company'] }}-static 
+    bucket_name: {{ pillar['rails-app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['rails-app']['company'] }}-static
     access_key_id: {{ pillar['rails-app']['amazon_access_key_id'] }}
     secret_access_key: {{ pillar['rails-app']['amazon_secret_access_key'] }}
     use_ssl: true
