@@ -1,5 +1,5 @@
 {% set reinforcement_node_ip = '0.0.0.0' %}
-
+bucket_name: {{ pillar['rails-app']['name'] }}-{{ salt['grains.get']('circle') }}-{{ pillar['rails-app']['company'] }}-static
 SERVER_TYPE: {{ salt['grains.get']('circle') }}
 SERVER_HOSTNAME: {{ salt['grains.get']('circle') }}.{{ pillar['rails-app']['domain'] }}
 
