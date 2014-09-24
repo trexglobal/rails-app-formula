@@ -1,0 +1,9 @@
+#!/bin/bash
+
+/usr/local/bin/backup_user_index $1
+
+timestamp=$(date +\%Y_\%m_\%d)
+
+export RAILS_ENV=production
+
+cd /srv/current/;rbenv exec bundle exec rake indexer:queue_user[$1] | tee /srv/shared/log/index/$1-${timestamp}_amazon.log

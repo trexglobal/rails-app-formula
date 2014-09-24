@@ -1,8 +1,0 @@
-#!/bin/bash -l
-#
-# Change to current app and run ruby/rake command
-#
-
-eval "$(/usr/bin/rbenv init -)";
-
-cd /srv/current && /usr/bin/rbenv exec bundle exec "$@"

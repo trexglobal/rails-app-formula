@@ -1,4 +1,4 @@
-app:
+rails-app:
   amazon_access_key_id:  # REPLACE THIS TEXT WITH VALID ACCESS KEY ID #
   amazon_secret_access_key:  # REPLACE THIS TEXT WITH VALID SECRET ACCESS KEY #
   name:  # REPLACE THIS TEXT WITH VALID NAME #
@@ -22,3 +22,11 @@ mail_alert:
     - user2@domain.com
     - user3@domain.com
     - user4@domain.com
+
+backup:
+  s3:
+    bucket: some-aws-bucket
+    region: us-east-1
+    access_key_id: # REPLACE THIS TEXT WITH VALID ACCESS KEY ID #
+    secret_access_key: # REPLACE THIS TEXT WITH VALID SECRET ACCESS KEY #
+    path: DatabaseBackups

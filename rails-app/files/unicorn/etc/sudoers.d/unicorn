@@ -1,0 +1,1 @@
+app ALL = (root) NOPASSWD: /sbin/start unicorn, /sbin/stop unicorn, /sbin/restart unicorn, /sbin/status unicorn
