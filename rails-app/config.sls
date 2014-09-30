@@ -1,5 +1,5 @@
 # Create app user
-app:
+{{ pillar['rails-app']['user'] }}:
   user.present:
     - fullname: Application User
     - shell: /bin/bash
@@ -11,8 +11,8 @@ app:
 # Setup directory for config files
 /srv:
   file.directory:
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - makedirs: True
     - recurse:
@@ -20,12 +20,12 @@ app:
       - group
       - mode
     - require:
-      - user: app
+      - user: {{ pillar['rails-app']['user'] }}
 
 /srv/shared:
   file.directory:
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - makedirs: True
     - recurse:
@@ -33,12 +33,12 @@ app:
       - group
       - mode
     - require:
-      - user: app
+      - user: {{ pillar['rails-app']['user'] }}
 
 /srv/shared/config:
   file.directory:
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - makedirs: True
     - recurse:
@@ -46,24 +46,24 @@ app:
       - group
       - mode
     - require:
-      - user: app
+      - user: {{ pillar['rails-app']['user'] }}
       - file: /srv/shared
 
 /srv/shared/log/index:
   file.directory:
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - makedirs: True
     - require:
-        - user: app
+        - user: {{ pillar['rails-app']['user'] }}
 
 
 # Create backup directory
 /srv/shared/backup/mongo:
   file.directory:
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - makedirs: True
     - recurse:
@@ -71,7 +71,7 @@ app:
       - group
       - mode
     - require:
-        - user: app
+        - user: {{ pillar['rails-app']['user'] }}
 
 
 # Setup config files for unicorn, database, application, amazon_s3
@@ -79,45 +79,45 @@ app:
   file:
     - managed
     - source: salt://rails-app/files/app/config/unicorn.rb
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - require:
        - file: /srv/shared/config
-       - user: app
+       - user: {{ pillar['rails-app']['user'] }}
 
 /srv/shared/config/database.yml:
   file:
     - managed
     - source: salt://rails-app/files/app/config/database.yml
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - template: jinja
     - require:
        - file: /srv/shared/config
-       - user: app
+       - user: {{ pillar['rails-app']['user'] }}
 
 /srv/shared/config/application.yml:
   file:
     - managed
     - source: salt://rails-app/files/app/config/application.yml
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - template: jinja
     - require:
        - file: /srv/shared/config
-       - user: app
+       - user: {{ pillar['rails-app']['user'] }}
 
 /srv/shared/config/amazon_s3.yml:
   file:
     - managed
     - source: salt://rails-app/files/app/config/amazon_s3.yml
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0755
     - template: jinja
     - require:
        - file: /srv/shared/config
-       - user: app
+       - user: {{ pillar['rails-app']['user'] }}

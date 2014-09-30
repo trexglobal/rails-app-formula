@@ -13,13 +13,13 @@ app_pkgs:
   file:
     - managed
     - source: salt://rails-app/files/app/config/s3cfg
-    - user: app
-    - group: app
+    - user: {{ pillar['rails-app']['user'] }}
+    - group: {{ pillar['rails-app']['user'] }}
     - mode: 0750
     - template: jinja
     - require:
       - pkg: s3cmd
-      - user: app
+      - user: {{ pillar['rails-app']['user'] }}
 
 
 
