@@ -1,4 +1,10 @@
 # Create app user
+{% if pillar['rails-app']['user'] == 'vagrant' %}
+{{ pillar['rails-app']['user'] }}:
+  user.present:
+    - fullname: Vagrant User
+    - shell: /bin/bash
+{% else %}
 {{ pillar['rails-app']['user'] }}:
   user.present:
     - fullname: Application User
@@ -6,6 +12,8 @@
     - home: /srv
     - uid: 4000
     - gid_from_name: True
+{% endif %}
+
 
 
 # Setup directory for config files
